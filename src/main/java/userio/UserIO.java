@@ -79,6 +79,14 @@ public class UserIO {
         return scanner.nextDouble();
     }
 
+    public static void showResultTable(Equation equation) {
+        List<Pair> points = equation.getPoints();
+        showStringColorful("x:        y:    ");
+        System.out.println();
+        points.stream()
+                .forEach((point) -> showDigitResultColorful(point.getX(), point.getY()));
+    }
+
     public static int getApproximationChoose() {
         System.out.println("Выберите номер аппроксимиции");
         printAllTypesOfApproximations();
@@ -100,5 +108,16 @@ public class UserIO {
 
     public static void printDeviation(double deviation) {
         System.out.printf("\u001B[36m" + "Мера отклонения: " + "%.6f\n" + "\u001B[0m", deviation);
+    }
+
+    public static void showDigitResultColorful(double x, double y) {
+        System.out.printf("\u001B[36m" + "%.4f    " + "\u001B[0m", x);
+        System.out.printf("\u001B[36m" + "%.4f\n" + "\u001B[0m", y);
+    }
+
+    public static void showStringColorful(String str) {
+        System.out.printf("\u001B[36m");
+        System.out.printf(str);
+        System.out.printf("\u001B[36m" + "\u001B[0m");
     }
 }

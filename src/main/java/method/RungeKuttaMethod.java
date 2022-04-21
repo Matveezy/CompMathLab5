@@ -31,6 +31,8 @@ public class RungeKuttaMethod {
             y += dy;
             points.add(new Pair(i + step, y));
         }
+        UserIO.showResultTable(equation);
+        addAnalyticPoints(equation, borders, step);
     }
 
     public static double getDy(double k1, double k2, double k3, double k4) {
@@ -51,5 +53,12 @@ public class RungeKuttaMethod {
 
     private static double getK4(Equation equation, double step, double x, double y, double k3) {
         return equation.getFunction().apply(x + step, y + k3) * step;
+    }
+
+    private static void addAnalyticPoints(Equation equation, double[] borders, double step) {
+        List<Pair> points = equation.getAnalyticPoints();
+        for (double i = borders[0]; i < borders[1]; i += step) {
+            points.add(new Pair(i, equation.getAnalyticSolve().apply(i)));
+        }
     }
 }

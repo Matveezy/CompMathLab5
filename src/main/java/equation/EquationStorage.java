@@ -19,7 +19,8 @@ public class EquationStorage {
         equations = new HashMap<>();
         equations.put(1, new Equation(
                 "y' = y * (x^2 + 1)",
-                (x, y) -> (y * (Math.pow(x, 2) + 1))
+                (x, y) -> (y * (Math.pow(x, 2) + 1)),
+                (x) -> (Math.exp(((Math.pow(x , 3))/3) + x))
         ));
     }
 
