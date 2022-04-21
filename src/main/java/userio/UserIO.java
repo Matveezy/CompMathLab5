@@ -5,6 +5,8 @@ import approximation.ApproximationStorage;
 import entity.Function;
 import entity.FunctionStorage;
 import entity.Pair;
+import equation.Equation;
+import equation.EquationStorage;
 
 import java.util.List;
 import java.util.Map;
@@ -19,13 +21,21 @@ public class UserIO {
         System.out.println("Чухно Матвей. Метод Рунге-Кутта 4 порядка");
     }
 
-    public static void showFunctions() {
-        Map<Integer, Function> functions = FunctionStorage.getFunctions();
-        for (int i = 1; i <= functions.size(); i++) {
-            System.out.println("Таблица значений " + i);
-            showTable(functions.get(i));
+//    public static void showFunctions() {
+//        Map<Integer, Function> functions = FunctionStorage.getFunctions();
+//        for (int i = 1; i <= functions.size(); i++) {
+//            System.out.println("Таблица значений " + i);
+//            showTable(functions.get(i));
+//        }
+//    }
+
+    public static void showEquations() {
+        Map<Integer, Equation> equations = EquationStorage.getEquations();
+        for (Map.Entry<Integer, Equation> eq : equations.entrySet()) {
+            System.out.println(eq.getKey() + ": " + eq.getValue().getDescription());
         }
     }
+
 
     private static void showTable(Function function) {
         System.out.print("x:| ");
@@ -41,9 +51,27 @@ public class UserIO {
         System.out.println("|");
     }
 
-    public static int getFunctionChoose() {
-        System.out.println("Выберите номер аппроксимируемой функции");
+    public static int getEquationChoose() {
+        System.out.println("Выберите номер уравнения");
         return scanner.nextInt();
+    }
+
+    public static double[] getBorders() {
+        double[] borders = new double[2];
+        System.out.println("Введите начало и конец отрезка:");
+        borders[1] = scanner.nextDouble();
+        borders[2] = scanner.nextDouble();
+        return borders;
+    }
+
+    public static double getStep() {
+        System.out.println("Введите размер шага:");
+        return scanner.nextDouble();
+    }
+
+    public static double getY(double[] borders) {
+        System.out.println("Введите координату y начальной точки с x = " + borders[0]);
+        return scanner.nextDouble();
     }
 
     public static int getApproximationChoose() {

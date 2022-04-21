@@ -1,5 +1,6 @@
 package equation;
 
+import entity.Function;
 import entity.Pair;
 
 import java.util.Collections;
@@ -22,4 +23,16 @@ public class EquationStorage {
                 (x, y) -> (y * (Math.pow(x, 2) + 1))
         ));
     }
+
+    public static Map<Integer, Equation> getEquations() {
+        return equations;
+    }
+
+    public static Equation getEquation(int choose) {
+        if (choose <= 1 || choose > equations.size()) {
+            choose = 1;
+        }
+        return equations.get(choose);
+    }
+
 }

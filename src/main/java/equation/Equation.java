@@ -38,4 +38,7 @@ public class Equation {
         return points;
     }
 
+    public BiFunction<Double, Double, Double> getFunction() {
+        return function;
+    }
 }
