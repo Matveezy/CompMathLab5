@@ -39,7 +39,6 @@ public class ExponentialApproximation extends Function implements Approximation 
         double[] results = getMatrixRightSide(function, approximation);
         double[] params = Gausse.getUnknownColumn(matrix, results);
         params[0] = Math.exp(params[0]);
-        UserIO.printParams(params);
         List<Double> newY = getNewYPoints(function, params);
         return new Function(FunctionUtil.yGlueX(function, newY));
     }

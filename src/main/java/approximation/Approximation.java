@@ -72,7 +72,6 @@ public interface Approximation {
         double[][] matrix = getMatrixLeftSide(function, approximation);
         double[] results = getMatrixRightSide(function, approximation);
         double[] params = Gausse.getUnknownColumn(matrix, results);
-        UserIO.printParams(params);
         List<Double> newY = getNewYPoints(function, params);
         return new Function(FunctionUtil.yGlueX(function, newY));
     }

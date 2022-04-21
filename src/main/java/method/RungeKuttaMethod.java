@@ -1,5 +1,7 @@
 package method;
 
+import approximation.ApproximationStorage;
+import entity.Function;
 import entity.Pair;
 import equation.Equation;
 import equation.EquationStorage;
@@ -31,8 +33,10 @@ public class RungeKuttaMethod {
             y += dy;
             points.add(new Pair(i + step, y));
         }
-        UserIO.showResultTable(equation);
         addAnalyticPoints(equation, borders, step);
+        int approximationChoose = UserIO.getApproximationChoose();
+        UserIO.showResultTable(equation);
+        LeastSquaresMethod.approximationRunner(new Function(equation.getPoints()), new Function(equation.getAnalyticPoints()), ApproximationStorage.getApproximation(approximationChoose));
     }
 
     public static double getDy(double k1, double k2, double k3, double k4) {

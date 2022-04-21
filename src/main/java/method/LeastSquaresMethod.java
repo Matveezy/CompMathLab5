@@ -17,16 +17,17 @@ public class LeastSquaresMethod {
     }
 
     private static void leastSquaresMethod(Function function, Approximation approximation) {
-        approximationRunner(function, approximation);
+//        approximationRunner(function, approximation);
     }
 
-    private static void approximationRunner(Function function, Approximation approximation) {
-        Function firstApproximation = approximation.approximation(function, approximation);
-        Pair max = findPointWithMaxDifference(function, firstApproximation.getArrayY());
-        Function functionAfterExclusion = functionAfterExclusion(function, max);
-        Function approximationAfterExclusion = approximation.approximation(functionAfterExclusion, approximation);
-        UserIO.printDeviation(getDeviation(getDifference(function, firstApproximation.getArrayY())));
-        Drawer.draw(function, firstApproximation, approximationAfterExclusion, max);
+    public static void approximationRunner(Function rungeKutta, Function analyticSolve, Approximation approximation) {
+        Function rungeKuttaApproximation = approximation.approximation(rungeKutta, approximation);
+        Function analyticSolveApproximation = approximation.approximation(analyticSolve, approximation);
+//        Pair max = findPointWithMaxDifference(function, firstApproximation.getArrayY());
+//        Function functionAfterExclusion = functionAfterExclusion(function, max);
+//        Function approximationAfterExclusion = approximation.approximation(functionAfterExclusion, approximation);
+//        UserIO.printDeviation(getDeviation(getDifference(function, firstApproximation.getArrayY())));
+        Drawer.draw(rungeKuttaApproximation, analyticSolveApproximation);
     }
 
     private static List<Double> getDifference(Function function, double[] newY) {

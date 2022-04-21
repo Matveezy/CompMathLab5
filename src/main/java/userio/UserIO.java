@@ -88,7 +88,7 @@ public class UserIO {
     }
 
     public static int getApproximationChoose() {
-        System.out.println("Выберите номер аппроксимиции");
+        System.out.println("Выберите , какой функцией хотите аппроксимировать:");
         printAllTypesOfApproximations();
         return scanner.nextInt();
     }
@@ -99,12 +99,12 @@ public class UserIO {
         }
     }
 
-    public static void printParams(double[] params) {
-        for (int i = 0; i < params.length; i++) {
-            System.out.printf("\u001B[36m" + "a[" + i + "]= " + "%.6f\n" + "\u001B[0m", params[i]);
-        }
-        System.out.println();
-    }
+//    public static void printParams(double[] params) {
+//        for (int i = 0; i < params.length; i++) {
+//            System.out.printf("\u001B[36m" + "a[" + i + "]= " + "%.6f\n" + "\u001B[0m", params[i]);
+//        }
+//        System.out.println();
+//    }
 
     public static void printDeviation(double deviation) {
         System.out.printf("\u001B[36m" + "Мера отклонения: " + "%.6f\n" + "\u001B[0m", deviation);
