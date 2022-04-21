@@ -3,6 +3,7 @@ package equation;
 import entity.Function;
 import entity.Pair;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
 
@@ -12,9 +13,9 @@ public class Equation {
     private final List<Pair> points;
     private final BiFunction<Double, Double, Double> function;
 
-    public Equation(String description, List<Pair> points, BiFunction<Double, Double, Double> function) {
+    public Equation(String description, BiFunction<Double, Double, Double> function) {
         this.description = description;
-        this.points = points;
+        this.points = new ArrayList();
         this.function = function;
     }
 

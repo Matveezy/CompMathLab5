@@ -21,13 +21,13 @@ public class UserIO {
         System.out.println("Чухно Матвей. Метод Рунге-Кутта 4 порядка");
     }
 
-//    public static void showFunctions() {
-//        Map<Integer, Function> functions = FunctionStorage.getFunctions();
-//        for (int i = 1; i <= functions.size(); i++) {
-//            System.out.println("Таблица значений " + i);
-//            showTable(functions.get(i));
-//        }
-//    }
+    public static void showFunctions() {
+        Map<Integer, Function> functions = FunctionStorage.getFunctions();
+        for (int i = 1; i <= functions.size(); i++) {
+            System.out.println("Таблица значений " + i);
+            showTable(functions.get(i));
+        }
+    }
 
     public static void showEquations() {
         Map<Integer, Equation> equations = EquationStorage.getEquations();
@@ -56,11 +56,16 @@ public class UserIO {
         return scanner.nextInt();
     }
 
+    public static int getFunctionChoose() {
+        System.out.println("Выберите номер уравнения");
+        return scanner.nextInt();
+    }
+
     public static double[] getBorders() {
         double[] borders = new double[2];
         System.out.println("Введите начало и конец отрезка:");
+        borders[0] = scanner.nextDouble();
         borders[1] = scanner.nextDouble();
-        borders[2] = scanner.nextDouble();
         return borders;
     }
 
