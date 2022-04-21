@@ -24,4 +24,12 @@ public class RungeKuttaMethod {
     private static double getK2(Equation equation, double step, double x, double y, double k1) {
         return equation.getFunction().apply(x + step * 0.5, y + k1 * 0.5) * step;
     }
+
+    private static double getK3(Equation equation, double step, double x, double y, double k2) {
+        return equation.getFunction().apply(x + step * 0.5, y + k2 * 0.5) * step;
+    }
+
+    private static double getK4(Equation equation, double step, double x, double y, double k3) {
+        return equation.getFunction().apply(x + step , y + k3) * step;
+    }
 }
