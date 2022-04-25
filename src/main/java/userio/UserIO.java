@@ -3,7 +3,6 @@ package userio;
 import approximation.Approximation;
 import approximation.ApproximationStorage;
 import entity.Function;
-import entity.FunctionStorage;
 import entity.Pair;
 import equation.Equation;
 import equation.EquationStorage;
@@ -15,18 +14,9 @@ import java.util.Scanner;
 public class UserIO {
 
     private static Scanner scanner = new Scanner(System.in);
-    private static Map<Integer, Approximation> approximations;
 
     public static void introduction() {
         System.out.println("Чухно Матвей. Метод Рунге-Кутта 4 порядка");
-    }
-
-    public static void showFunctions() {
-        Map<Integer, Function> functions = FunctionStorage.getFunctions();
-        for (int i = 1; i <= functions.size(); i++) {
-            System.out.println("Таблица значений " + i);
-            showTable(functions.get(i));
-        }
     }
 
     public static void showEquations() {
@@ -56,10 +46,6 @@ public class UserIO {
         return scanner.nextInt();
     }
 
-    public static int getFunctionChoose() {
-        System.out.println("Выберите номер уравнения");
-        return scanner.nextInt();
-    }
 
     public static double[] getBorders() {
         double[] borders = new double[2];
@@ -99,16 +85,6 @@ public class UserIO {
         }
     }
 
-//    public static void printParams(double[] params) {
-//        for (int i = 0; i < params.length; i++) {
-//            System.out.printf("\u001B[36m" + "a[" + i + "]= " + "%.6f\n" + "\u001B[0m", params[i]);
-//        }
-//        System.out.println();
-//    }
-
-    public static void printDeviation(double deviation) {
-        System.out.printf("\u001B[36m" + "Мера отклонения: " + "%.6f\n" + "\u001B[0m", deviation);
-    }
 
     public static void showDigitResultColorful(double x, double y) {
         System.out.printf("\u001B[36m" + "%.4f    " + "\u001B[0m", x);

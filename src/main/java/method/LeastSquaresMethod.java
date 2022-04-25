@@ -9,17 +9,6 @@ import java.util.*;
 
 public class LeastSquaresMethod {
 
-
-    public static void leastSquaresMethodRunner() {
-        int functionChoose = UserIO.getFunctionChoose();
-        int approximationChoose = UserIO.getApproximationChoose();
-        leastSquaresMethod(FunctionStorage.getFunction(functionChoose), ApproximationStorage.getApproximation(approximationChoose));
-    }
-
-    private static void leastSquaresMethod(Function function, Approximation approximation) {
-//        approximationRunner(function, approximation);
-    }
-
     public static void approximationRunner(Function rungeKutta, Function analyticSolve, Approximation approximation) {
         Function rungeKuttaApproximation = approximation.approximation(rungeKutta, approximation);
         Function analyticSolveApproximation = approximation.approximation(analyticSolve, approximation);

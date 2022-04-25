@@ -35,7 +35,7 @@ public class Drawer {
         firstApproximationDraw.setLineStyle(SeriesLines.SOLID);
         firstApproximationDraw.setLineColor(Color.BLUE);
 
-        XYSeries secondApproximationDraw = chart.addSeries("Analytic Solve Data", xAnalyticData, yAnalyticData);
+        XYSeries secondApproximationDraw = chart.addSeries("Analytic Solve", xAnalyticData, yAnalyticData);
         secondApproximationDraw.setMarker(SeriesMarkers.NONE);
         secondApproximationDraw.setLineStyle(SeriesLines.DOT_DOT);
         secondApproximationDraw.setLineColor(Color.pink);
