@@ -1,9 +1,7 @@
 package ui;
 
 import entity.Function;
-import entity.Pair;
 import org.knowm.xchart.*;
-import org.knowm.xchart.style.Styler;
 import org.knowm.xchart.style.lines.SeriesLines;
 import org.knowm.xchart.style.markers.SeriesMarkers;
 import org.knowm.xchart.style.theme.GGPlot2Theme;

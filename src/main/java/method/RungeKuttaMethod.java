@@ -7,7 +7,6 @@ import equation.Equation;
 import equation.EquationStorage;
 import userio.UserIO;
 
-import javax.swing.*;
 import java.util.List;
 
 public class RungeKuttaMethod {

@@ -2,7 +2,6 @@ package approximation;
 
 import entity.Function;
 import gaussemethod.Gausse;
-import userio.UserIO;
 import util.FunctionUtil;
 
 import java.util.List;

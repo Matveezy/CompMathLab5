@@ -2,7 +2,6 @@ package userio;
 
 import approximation.Approximation;
 import approximation.ApproximationStorage;
-import entity.Function;
 import entity.Pair;
 import equation.Equation;
 import equation.EquationStorage;
@@ -26,26 +25,10 @@ public class UserIO {
         }
     }
 
-
-    private static void showTable(Function function) {
-        System.out.print("x:| ");
-        List<Pair> points = function.getPoints();
-        for (int i = 0; i < points.size(); i++) {
-            System.out.print(points.get(i).getX() + " ");
-        }
-        System.out.println("|");
-        System.out.print("y:| ");
-        for (int i = 0; i < points.size(); i++) {
-            System.out.print(points.get(i).getY() + " ");
-        }
-        System.out.println("|");
-    }
-
     public static int getEquationChoose() {
         System.out.println("Выберите номер уравнения");
         return scanner.nextInt();
     }
-
 
     public static double[] getBorders() {
         double[] borders = new double[2];
@@ -84,7 +67,6 @@ public class UserIO {
             System.out.println(entry.getKey() + "." + entry.getValue().typeOfApproximation());
         }
     }
-
 
     public static void showDigitResultColorful(double x, double y) {
         System.out.printf("\u001B[36m" + "%.4f    " + "\u001B[0m", x);
