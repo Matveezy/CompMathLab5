@@ -23,12 +23,13 @@ public class RungeKuttaMethod {
     private static void rungeKuttaMethod(Equation equation, double[] borders, double step, double y) {
         List<Pair> points = equation.getPoints();
         points.add(new Pair(borders[0], y));
+        double k1, k2, k3, k4, dy;
         for (double i = borders[0]; i < borders[1] - step; i += step) {
-            double k1 = getK1(equation, step, i, y);
-            double k2 = getK2(equation, step, i, y, k1);
-            double k3 = getK3(equation, step, i, y, k2);
-            double k4 = getK4(equation, step, i, y, k3);
-            double dy = getDy(k1, k2, k3, k4);
+            k1 = getK1(equation, step, i, y);
+            k2 = getK2(equation, step, i, y, k1);
+            k3 = getK3(equation, step, i, y, k2);
+            k4 = getK4(equation, step, i, y, k3);
+            dy = getDy(k1, k2, k3, k4);
             y += dy;
             points.add(new Pair(i + step, y));
         }
@@ -38,7 +39,7 @@ public class RungeKuttaMethod {
         LeastSquaresMethod.approximationRunner(new Function(equation.getPoints()), new Function(equation.getAnalyticPoints()), ApproximationStorage.getApproximation(approximationChoose));
     }
 
-    public static double getDy(double k1, double k2, double k3, double k4) {
+    private static double getDy(double k1, double k2, double k3, double k4) {
         return (k1 + 2 * k2 + 2 * k3 + k4) / 6;
     }
 
